@@ -9,9 +9,9 @@ import json
 import random
 intents = json.loads(open('intents.json').read())
 words = pickle.load(open('words.pkl','rb'))
-classes = pickle.load(open('classes.pkl','rb')
+classes = pickle.load(open('classes.pkl','rb'))
 
-def clean_up_sentence(sentence):
+def clean_up_sentence(sentence) :
     # tokenize the pattern - split words into array
     sentence_words = nltk.word_tokenize(sentence)
     # stem each word - create short form for word
@@ -45,7 +45,7 @@ def predict_class(sentence, model):
     return return_list
     
 def getResponse(ints, intents_json):
-    tag = ints[0]['inetnt']
+    tag = ints[0]['intent']
     list_of_intents = intents_json['intents']
     for i in list_of_intents:
         if(i['tag']== tag):
